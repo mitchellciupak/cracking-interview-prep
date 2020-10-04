@@ -28,18 +28,7 @@ def removeDups(head):
         i += 1
     return head
 
-def test1():
-    #Duplicate in tail
-    head = Node(1)
-    head.next = Node(2)
-    head.next.next = Node(3)
-    head.next.next.next = Node(1)
-
-    printLL(removeDups(head))
-
 def printLL(head):
     while(head):
         print(head.val)
         head = head.next
-
-test1()
