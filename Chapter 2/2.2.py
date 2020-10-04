@@ -29,7 +29,7 @@ def kthToLast(head, k):
 
     len = lenLinkedList(head)
 
-    for in range(0,len-k):
+    for i in range(0,k - len):
         head = head.next 
 
     return head
