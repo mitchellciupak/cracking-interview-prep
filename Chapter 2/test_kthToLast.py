@@ -1,5 +1,5 @@
 import pytest
-import 2.2
+import kthToLast
 
 def test_kthToLast1():
     assert True
