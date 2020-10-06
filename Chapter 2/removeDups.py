@@ -3,20 +3,16 @@
 ### 20200930
 
 '''
-Write code to remove duplicates from an unsorted linked list.
-FOLLOW UP
-How would you solve this problem if a temporary buffer is not allowed?
+Write code to remove duplicates from an unsorted linked list
 Page: (94,105)
 '''
-class Node:
-    def __init__(self, data=None):
-        self.val = data
-        self.next = None
+
+import linkedLists as ll
 
 # Complexity O(n)
 def removeDups(head):
     valdict = []
-    prev = Node()
+    prev = ll.Node()
     i = 0
     while(head):
         if head.val in valdict:
@@ -27,8 +23,3 @@ def removeDups(head):
         head = head.next
         i += 1
     return head
-
-def printLL(head):
-    while(head):
-        print(head.val)
-        head = head.next

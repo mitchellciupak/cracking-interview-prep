@@ -11,3 +11,8 @@ def lenLinkedList(list):
         count += 1
         temp = temp.next
     return count
+
+def printLL(head):
+    while(head):
+        print(head.val)
+        head = head.next
