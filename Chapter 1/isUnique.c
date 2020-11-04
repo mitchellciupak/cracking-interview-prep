@@ -12,7 +12,7 @@ Page(90,101)
 #include <stdbool.h>
 
 //O(1) to O(n)
-bool isUnique(int * arr, int arrlen){
+bool isUnique(char * arr, int arrlen){
 
     //Hash Map for each bit
     int charsInArr = 0
@@ -32,7 +32,7 @@ bool isUnique(int * arr, int arrlen){
 }
 
 //Theta(n^2)
-bool isUnique_NOHASH(int * arr, int arrlen){
+bool isUnique_NOHASH(char * arr, int arrlen){
 
    for (int i = 0; i < arrlen; i++) {
        for (int  = 0;  < arrlen; j++) { 
