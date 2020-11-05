@@ -35,7 +35,7 @@ bool isPermutation(char * parent, char * child) {
     //Check hash map w/ child
     for(i = 0; i < clen; i++){
         unsigned int index = (int)child[i] - 48;
-        
+
         letters[index]--;
 
         if(letters[index] < 0){
@@ -47,9 +47,6 @@ bool isPermutation(char * parent, char * child) {
     return true;
 
 }
-
-
-
 
 void main(){
 
