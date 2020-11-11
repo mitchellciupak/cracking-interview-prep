@@ -1,4 +1,4 @@
-// 1.3 Arrays and Stirngs - Palindrome Permutation
+// 1.4 Arrays and Stirngs - Palindrome Permutation
 // Mitchell Ciupak
 // 20201111
 
