@@ -11,3 +11,15 @@ Page(91,102)
 
 #include<stdio.h>
 #include <stdbool.h>
+#include <string.h>
+
+bool isRotation(char* sl, char* s2) {
+    int len = strlen(sl);
+
+    if (len == s2.length() && len > 0) {
+        char* slsl = sl + sl;
+        return isSubstring(slsl, s2);
+    }
+
+    return false;
+}
