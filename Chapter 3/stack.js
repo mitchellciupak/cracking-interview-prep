@@ -1,4 +1,4 @@
-// 2.1 Linked List Remove Dups/Remove Duplicates
+// 3 - Stacks and Queues
 // Mitchell Ciupak
 // 20201217
 
