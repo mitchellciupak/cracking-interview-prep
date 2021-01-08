@@ -38,6 +38,8 @@
 ### Mitchell Ciupak
 ### 20210102
 
+## Question
+
 ## Clarifying Questions
 
 ## List of Solutions vs. Tradeoffs
