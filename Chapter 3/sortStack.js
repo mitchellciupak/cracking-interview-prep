@@ -30,14 +30,9 @@ Page: (99,110)
 
 
 //Implementation
-
-Array.prototype.insert = function (index, item) {
-    this.splice(index, 0, item);
-};
-
 class Stack {
     constructor() {
-        this.stack = [];
+        this.stack = new Array();
     }
 
     push(val) {
@@ -47,7 +42,7 @@ class Stack {
 
         for (let i = 0; i < this.stack.length; i++) {
             if (val < this.stack[i]) {
-                this.Array.insert(i, val);
+                this.stack.splice(i, 0, val);
                 return;
             }
         }
@@ -73,3 +68,10 @@ class Stack {
 
 
 //Testing
+let s = new Stack();
+s.push(3);
+s.push(2);
+s.push(1);
+s.push(-1);
+s.pop();
+console.log(s.stack);
