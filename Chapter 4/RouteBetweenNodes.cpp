@@ -21,7 +21,7 @@ Page: (109,120)
 ## Pseudocode
 
 bool isRouteBetweenNodes(Node start, Node end){
-    if root is null then return false;
+    if start is null then return false;
 
     if isEnd(start) then return true;
     start.visited = true;
@@ -84,6 +84,19 @@ void printGraph(Graph const& graph, int N)
     }
 }
 
+bool isRouteBetweenNodes(Graph const& graph, int N, int start, int end){
+    if (start > N - 1) return false;
+
+    if (start == end) return true;
+
+    for (int v : graph.adjList[start]) {
+        if (v == end) return true;
+    }
+
+    return false;
+}
+
+
 //Testing
 int main()
 {
@@ -101,6 +114,12 @@ int main()
 
     // print adjacency list representation of graph
     printGraph(graph, N);
+    cout << "\n";
+
+    // Testing
+    cout << "7->1? " << isRouteBetweenNodes(graph, N, 7, 1) << "\n";
+    cout << "1->1? " << isRouteBetweenNodes(graph, N, 1, 1) << "\n";
+    cout << "2->1? " << isRouteBetweenNodes(graph, N, 7, 1) << "\n";
 
     return 0;
 }
