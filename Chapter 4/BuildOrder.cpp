@@ -14,130 +14,71 @@ Page: (110,121)
 ## Clarifying Questions
 
 ## List of Solutions vs. Tradeoffs
+* Topological Sorting using BFS
+* Topological Sorting using DFS
 
 ## Pseudocode
 
 */
 
 //Implementation
-#include <iostream>
-#include <list>
+#include <bits/stdc++.h>
 using namespace std;
 
-struct Node{
-
-    Node* left;
-    Node* right;
-    int data;
-    Node(int d)
-    {
-        left = NULL;
-        right = NULL;
-        data = d;
-    }
-};
-
-class Binary_Tree{
-
-    Node* root;
-
-
-public:
-    Binary_Tree() {
-        root = NULL;
-    }
-
-    void insert(int element);
-
-    list<list<Node*> > successor(Node*);
-    list<list<Node*> > successor();
-
-};
-
-void Binary_Tree::insert(int ele) {
-
-    Node* node = new Node(ele);
-
-    if (root == NULL) {
-        root = node;
-        return;
-    }
-
-    Node* temp = root;
-
-    while (temp != NULL) {
-
-        if (ele > temp->data) {
-            if (temp->right != NULL)
-                temp = temp->right;
-            else {
-                temp->right = node;
-                return;
-            }
-        }
-        else {
-            if (temp->left != NULL)
-                temp = temp->left;
-            else {
-                temp->left = node;
-                return;
-            }
-        }
-    }
+// Returns adjacency list representation of graph from
+// given set of pairs.
+vector<unordered_set<int> > make_graph(int numTasks,
+    vector<pair<int, int> >& prerequisites)
+{
+    vector<unordered_set<int> > graph(numTasks);
+    for (auto pre : prerequisites)
+        graph[pre.second].insert(pre.first);
+    return graph;
 }
 
-list<list<Node*> > Binary_Tree::successor() {
-    return successor(root);
+// Does DFS and adds nodes to Topological Sort
+bool dfs(vector<unordered_set<int> >& graph, int node,
+    vector<bool>& onpath, vector<bool>& visited,
+    vector<int>& toposort)
+{
+    if (visited[node])
+        return false;
+    onpath[node] = visited[node] = true;
+    for (int neigh : graph[node])
+        if (onpath[neigh] || dfs(graph, neigh, onpath, visited, toposort))
+            return true;
+    toposort.push_back(node);
+    return onpath[node] = false;
 }
 
-list<list<Node*> > Binary_Tree::successor(Node* node) {
-
-    list<Node*> current, parent;
-    list<list<Node*> > result;
-
-    if (node == NULL)
-        return -1;
-
-    if (node->right != NULL)
-        return node->right->data;
-
-    result.push_back(current);
-    parent = current;
-
-    if (parent != NULL){
-
-        //Parent
-        if (parent->left == node){
-            return parent->data;
-        }
-
-        result.push_back(current);
-        parent = current;
-
-        //Grandparent
-        if (parent != NULL){
-            return parent->data;
-        }
-
-    }
-
+// Returns an order of tasks so that all tasks can be
+// finished.
+vector<int> findOrder(int numTasks, vector<pair<int, int> >& prerequisites)
+{
+    vector<unordered_set<int> > graph = make_graph(numTasks, prerequisites);
+    vector<int> toposort;
+    vector<bool> onpath(numTasks, false), visited(numTasks, false);
+    for (int i = 0; i < numTasks; i++)
+        if (!visited[i] && dfs(graph, i, onpath, visited, toposort))
+            return {};
+    reverse(toposort.begin(), toposort.end());
+    return toposort;
 }
 
-
-//Testing
 int main()
 {
+    int numTasks = 4;
+    vector<pair<int, int> > prerequisites;
 
-    Binary_Tree bt;
-    bt.insert(3);
-    bt.insert(2);
-    bt.insert(4);
-    bt.insert(1);
-    bt.insert(5);
-    l = bt.level();
+    // for prerequisites: [[1, 0], [2, 1], [3, 2]]
+    prerequisites.push_back(make_pair(1, 0));
+    prerequisites.push_back(make_pair(2, 1));
+    prerequisites.push_back(make_pair(3, 2));
+    vector<int> v = findOrder(numTasks, prerequisites);
 
-    int l = bt.successor(3);
-    cout << "The Successor to 3 is " << l << endl;
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
 
     return 0;
 }
