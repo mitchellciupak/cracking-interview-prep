@@ -26,7 +26,7 @@ head = ll.Node(1)
 head.next = ll.Node(2)
 head.next.next = ll.Node(3)
 head.next.next.next = ll.Node(4)
-head.next.next.next.next = ll.Node(5)
+head.next.next.next.next = ll.Node(5
 
 head = reverse_linkedlist(head=head)
 ll.printLL(head)
