@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"tasks": { // CRTL + SHIFT + P -> Tasks 
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "test-python",
+				"type": "docker-run",
+				"command": "pytest"
+			}
+		]
+	},
+	"launch": { // CRTL + SHIFT + D -> Launch
+		"configurations": [
+			{
+				"type": "node",
+				"request": "launch",
+				"name": "Launch Program",
+				"program": "${workspaceRoot}/bin/www"
+			},
+		],
+		"compounds": []
+	},
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode-remote.remote-containers",
+			"ms-vscode-remote.remote-wsl",
+		]
+	}
+}
