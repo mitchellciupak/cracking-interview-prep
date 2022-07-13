@@ -36,4 +36,10 @@ func TestReverseRunes(t *testing.T) {
 // [x] https://go.dev/doc/tutorial/getting-started
 // [x] https://go.dev/doc/tutorial/create-module
 // [x] https://go.dev/doc/code
-// [ ] https://go.dev/tour/welcome/1
+// [x] https://go.dev/tour/welcome/1
+// [x] https://go.dev/tour/basics
+// [ ] https://go.dev/tour/flowcontrol
+// [ ] https://go.dev/tour/moretypes
+// [ ] https://go.dev/tour/methods
+// [ ] https://go.dev/tour/generics
+// [ ] https://go.dev/tour/concurrency
