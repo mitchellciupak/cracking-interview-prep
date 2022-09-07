@@ -3,4 +3,4 @@ Problems from Gayle Laakmann McDowell's Cracking the Coding Interview brought to
 
 
 ## TODO
-* Get Testing Envs Ready for This for All Langs, Start with Python
+* Get Testing Envs Ready for This for All Langs, Start with Python then JS
