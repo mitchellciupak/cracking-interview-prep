@@ -1,16 +1,15 @@
 #!/bin/python3.8
 # -*- coding: utf-8 -*-
 
-##################################
 __title__         = "CCI Prep - 1.2 Arrays and Stirngs - Check Permutations"
 __contributers__  = "Mitchell Ciupak"
 __datecreated__   = 20220607
-##################################
 __description__    = """
 Check Permutation: Given two strings, write a method to decide if one is a permutation of the other.
 """
 __page__           = {"book":90,"pdf":101}
-__clertification__ = """
+__clertification__ = \
+"""
 * A permutation is true if parent sring has the same number of character counts as child.
 * If the parent is a permutation of the child then the child is a permutation of the parent.
 * The set of characters allowed in the input strings is 26 upper and 26 lower of english alphabet.
